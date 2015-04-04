@@ -2,7 +2,7 @@ library(tseries)
 library(zoo)
 
 #Load symbol data for the s&p 500
-companies <- read.table('S&P Current List.txt')
+companies <- read.table('S&P.txt')
 colnames(companies) <- c('symbol')
 #set lookback period
 years <- 1 
@@ -56,7 +56,7 @@ for(i in 1:ncol(combs)){
     t <- (Sys.time() - beg)
     print('Writing Backup...')
     print(paste(ceiling(p * 100),'Percent Complete')) 
-    print(paste(ceiling((t / p - t) / 60),  'minutes remaining'))
+#     print(paste(ceiling((t / p - t) / 60),  'minutes remaining'))
   }
 }
 print(paste('completed in', Sys.time() - beg, 'minutes'))
