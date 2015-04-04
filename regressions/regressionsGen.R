@@ -2,7 +2,7 @@ library(tseries)
 library(zoo)
 
 #Load symbol data for the s&p 500
-companies <- read.table('sp500-symbol-list.txt')
+companies <- read.table('S&P Current List.txt')
 colnames(companies) <- c('symbol')
 #set lookback period
 years <- 1 
@@ -18,7 +18,7 @@ for (comp in companies$symbol){
   colnames(price) <- comp
   
   #Fill missing days with NAs
-  max.len <- 252
+  max.len <- 252 * years
   rep <- max.len - length(price[,comp])
   price <- c(price[,comp], rep(NA, if(rep > 0) rep else 0))
   
